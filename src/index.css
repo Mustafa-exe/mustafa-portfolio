@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #0a0f1c;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+  }
+  
+  * { box-sizing: border-box; }
+  html { 
+    scroll-behavior: smooth; 
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+  body { 
+    background: linear-gradient(135deg, #0a0f1c 0%, #1e293b 25%, #0f172a 50%, #1a1f3a 75%, #0a0f1c 100%);
+    background-size: 400% 400%;
+    animation: epicGradientShift 20s ease infinite;
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* Epic scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #2563eb, #7c3aed, #0891b2);
+  }
+
+  /* Epic selection styling */
+  ::selection {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    color: white;
+  }
+  
+  /* Epic scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+  ::-webkit-scrollbar-thumb { 
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4);
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .glass-premium {
+    @apply bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] shadow-2xl;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+    box-shadow: 
+      0 8px 32px rgba(0,0,0,0.3),
+      inset 0 1px 0 rgba(255,255,255,0.1),
+      0 0 0 1px rgba(255,255,255,0.05);
+  }
+  
+  .glass-card {
+    @apply glass-premium rounded-2xl p-6 transition-all duration-500 hover:bg-white/[0.08] hover:border-white/[0.15] hover:shadow-2xl;
+    transform-style: preserve-3d;
+  }
+  
+  .glass-card:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: 
+      0 20px 60px rgba(0,0,0,0.4),
+      0 0 40px rgba(59, 130, 246, 0.1),
+      inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-2xl;
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+  
+  .btn-primary:hover::before {
+    transform: translateX(100%);
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-premium font-medium transition-all duration-300 hover:bg-white/[0.08] hover:scale-105;
+  }
+  
+  .epic-text {
+    background: linear-gradient(45deg, #ff0080, #ff8000, #ffff00, #80ff00, #00ffff, #8000ff);
+    background-size: 400% 400%;
+    animation: gradientShift 3s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .floating-card {
+    animation: floatEpic 6s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .container-g { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+  .glass { @apply bg-white/5 backdrop-blur border border-white/10; }
+  .gradient-text { 
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-[length:200%_100%];
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  .text-gradient-orange { @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-red-400; }
+  .text-gradient-green { @apply bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-400; }
+  .section-padding { @apply py-20 md:py-32; }
+  .cursor-none { cursor: none !important; }
+  
+  /* Line clamping utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@keyframes epicGradientShift {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 0%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes floatEpic {
+  0%, 100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+  33% { transform: translateY(-15px) rotateX(5deg) rotateY(2deg); }
+  66% { transform: translateY(-10px) rotateX(-3deg) rotateY(-4deg); }
+}
+
+@keyframes gradientRotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes particleFloat {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.3;
+  }
+  25% { 
+    transform: translateY(-30px) translateX(15px) scale(1.1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-50px) translateX(-10px) scale(0.9);
+    opacity: 1;
+  }
+  75% { 
+    transform: translateY(-25px) translateX(20px) scale(1.2);
+    opacity: 0.6;
+  }
+}
+
+.float-animation { animation: float 6s ease-in-out infinite; }
+.epic-float { animation: floatEpic 8s ease-in-out infinite; }
+.gradient-rotate { animation: gradientRotate 10s linear infinite; }
+.pulse-epic { animation: pulse 4s ease-in-out infinite; }
+.particle-float { animation: particleFloat 12s ease-in-out infinite; }
