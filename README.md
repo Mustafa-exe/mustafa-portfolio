@@ -29,7 +29,7 @@ Visit the live portfolio:https://mustafa-exe.github.io/mustafa-portfolio/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/mustafahassan-repo/mustafa-portfolio.git
+   git clone https://mustafa-exe.github.io/mustafa-portfolio
    cd mustafa-portfolio
    ```
 
