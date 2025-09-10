@@ -23,7 +23,7 @@ A premium, interactive portfolio website built with React, TypeScript, Vite, and
 
 ## 🚀 Live Demo
 
-Visit the live portfolio: [https://mustafahassan-repo.github.io/mustafa-portfolio/](https://mustafahassan-repo.github.io/mustafa-portfolio/)
+Visit the live portfolio:https://mustafa-exe.github.io/mustafa-portfolio/
 
 ## 💻 Local Development
 
@@ -76,7 +76,7 @@ The project is configured with GitHub Actions for automatic deployment:
 
 **Muhammad Mustafa**
 - Email: 2mustafa.exe@gmail.com
-- GitHub: [@mustafahassan-repo](https://github.com/mustafahassan-repo)
+- GitHub: https://github.com/Mustafa-exe
 
 ---
 
