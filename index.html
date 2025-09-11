@@ -11,13 +11,23 @@
     <meta property="og:url" content="/" />
     <meta property="og:image" content="/og.png" />
     <meta name="theme-color" content="#0b1020" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <script type="module" crossorigin src="/assets/index-BueZLht1.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-ovLSOIqO.css">
+    <link rel="icon" type="image/svg+xml" href="/mustafa-portfolio/favicon.svg" />
+    <link rel="manifest" href="/mustafa-portfolio/site.webmanifest" />
+    <script type="module" crossorigin src="/mustafa-portfolio/assets/index-DkKm_vO9.js"></script>
+    <link rel="stylesheet" crossorigin href="/mustafa-portfolio/assets/index-ovLSOIqO.css">
   </head>
   <body class="bg-[#0b1020] text-white">
-    <div id="root"></div>
+    <div id="root"></div>
+    <script>
+      // GitHub Pages SPA redirect handling
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
   </body>
   
 </html>
